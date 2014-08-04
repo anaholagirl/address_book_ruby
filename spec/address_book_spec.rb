@@ -64,5 +64,10 @@ describe "Address" do
       new_address = Address.new('1234 house', 'Lovely ave.', 'Portland', '12345')
       expect(new_address).to be_an_instance_of Address
     end
+
+    it 'will return the building number' do
+      new_address = Address.new('1234 house', 'Lovely ave.', 'Portland', '12345')
+      expect(new_address.building).to eq('1234 house')
+    end
   end
 end

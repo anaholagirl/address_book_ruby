@@ -6,4 +6,8 @@ class Address
     @city = city
     @zip = zip
   end
+
+  def building
+    @building
+  end
 end
