@@ -28,20 +28,14 @@ def main_menu
     end
     puts "\n"
     puts "Choose a contact to view all details"
-    selected_contact = gets.chomp
-    # @current_person = selected_contact
+    @selected_contact = gets.chomp
 
-    Person.all.each do |person|
-      if selected_contact == person.first_name + " " +  person.last_name
-        puts "\n"
-        puts person.first_name + " " + person.last_name
-        person.addresses.each do |address|
-          puts address.building + " " + address.street + " " + address.city +
-          " " + address.zip
-        end
-      end
-    end
+    get_contact_details
+
+
+
   end
+
 
   main_menu
 end
@@ -77,16 +71,41 @@ def add_phone
   @current_person.push_phone(new_phone)
 end
 
-# def get_contact_details
-#   Person.all.each do |person|
-#     if selected_contact == person
-#       @current_person = selected_contact
-#       puts person.first_name +  " " + person.last_name
-#     end
-#   Address.all.each do |person|
-#     if selected_contact == person
+def get_contact_details
+  Person.all.each do |person|
+    if @selected_contact == person.first_name + " " +  person.last_name
+      puts "\n"
+      puts person.first_name + " " + person.last_name
+      person.addresses.each do |address|
+        puts "1)" + address.building + " " + address.street + " " + address.city +
+        " " + address.zip
+      end
+      person.emails.each do |email|
+        puts "2)" + email.email
+      end
+      person.phone_numbers.each do |phone|
+        puts "3)" + phone.phone_number
+      end
+      puts "If you would like to edit any contact details, press 1, 2 or 3"
+      puts "Press 'm' to get back to the main menu"
+      edit_choice = gets.chomp
+      if edit_choice == "m"
+        main_menu
+      elsif edit_choice == "2"
+        puts "which e-mail would you like to edit"
+        email_old = gets.chomp
+        puts "what would you like to change it to?"
+        email_new = gets.chomp
 
-#     end
-  # end
+        person.emails.each do |email|
+          if email.email == email_old
+            email.update_email(email_new)
+          end
+        end
+
+      end
+    end
+  end
+end
 
 main_menu

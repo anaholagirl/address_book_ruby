@@ -16,4 +16,8 @@ class Email
   def save
     @@all_emails << self
   end
+
+  def update_email(email)
+    @email = email
+  end
 end
