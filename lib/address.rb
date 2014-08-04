@@ -10,4 +10,9 @@ class Address
   def building
     @building
   end
+
+  def street
+    @street
+  end
+
 end
