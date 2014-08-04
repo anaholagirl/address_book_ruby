@@ -25,10 +25,22 @@ def main_menu
   elsif input == "l"
     Person.all.each do |person|
       puts person.first_name +  " " + person.last_name
-      puts "\n"
-
     end
+    puts "\n"
+    puts "Choose a contact to view all details"
+    selected_contact = gets.chomp
+    # @current_person = selected_contact
 
+    Person.all.each do |person|
+      if selected_contact == person.first_name + " " +  person.last_name
+        puts "\n"
+        puts person.first_name + " " + person.last_name
+        person.addresses.each do |address|
+          puts address.building + " " + address.street + " " + address.city +
+          " " + address.zip
+        end
+      end
+    end
   end
 
   main_menu
@@ -64,5 +76,17 @@ def add_phone
   new_phone.save
   @current_person.push_phone(new_phone)
 end
+
+# def get_contact_details
+#   Person.all.each do |person|
+#     if selected_contact == person
+#       @current_person = selected_contact
+#       puts person.first_name +  " " + person.last_name
+#     end
+#   Address.all.each do |person|
+#     if selected_contact == person
+
+#     end
+  # end
 
 main_menu
