@@ -3,6 +3,7 @@ require "rspec"
 require "person"
 require "phone"
 require "email"
+require "address"
 
 describe "Person" do
   describe ".initialize" do
@@ -45,7 +46,7 @@ end
 
 describe "Email" do
   describe ".initialize" do
-    it 'will create an new instance of an email' do
+    it 'will create a new instance of an email' do
       new_email = Email.new('person.com')
       expect(new_email).to be_an_instance_of Email
     end
@@ -53,6 +54,15 @@ describe "Email" do
     it 'will return the email' do
       new_email = Email.new('person.com')
       expect(new_email.email).to eq('person.com')
+    end
+  end
+end
+
+describe "Address" do
+  describe ".initialize" do
+    it 'will create a new instance of an address' do
+      new_address = Address.new('1234 house', 'Lovely ave.', 'Portland', '12345')
+      expect(new_address).to be_an_instance_of Address
     end
   end
 end
