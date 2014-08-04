@@ -1,4 +1,11 @@
 class Person
+
+  @@all_persons = []
+
+  def Person.all
+    @@all_persons
+  end
+
   def initialize(first_name, last_name)
     @first_name = first_name
     @last_name = last_name
@@ -8,8 +15,11 @@ class Person
     @first_name
   end
 
-  def second_name
-    @second_name
+  def last_name
+    @last_name
   end
 
+  def save
+    @@all_persons << self
+  end
 end
