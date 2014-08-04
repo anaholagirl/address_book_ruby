@@ -74,5 +74,10 @@ describe "Address" do
       new_address = Address.new('1234 house', 'Lovely ave.', 'Portland', '12345')
       expect(new_address.street).to eq('Lovely ave.')
     end
+
+    it 'will return the city' do
+      new_address = Address.new('1234 house', 'Lovely ave.', 'Portland', '12345')
+      expect(new_address.city).to eq('Portland')
+    end
   end
 end

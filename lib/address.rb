@@ -15,4 +15,8 @@ class Address
     @street
   end
 
+  def city
+    @city
+  end
+
 end
