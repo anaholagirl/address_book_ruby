@@ -56,6 +56,13 @@ describe "Email" do
       expect(new_email.email).to eq('person.com')
     end
   end
+
+  describe ".all" do
+    it 'will return the array of emails' do
+      expect(Email.all).to eq([])
+    end
+  end
+
 end
 
 describe "Address" do
