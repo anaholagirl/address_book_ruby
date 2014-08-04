@@ -19,4 +19,8 @@ class Address
     @city
   end
 
+  def zip
+    @zip
+  end
+
 end

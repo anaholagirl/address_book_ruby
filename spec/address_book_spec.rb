@@ -79,5 +79,10 @@ describe "Address" do
       new_address = Address.new('1234 house', 'Lovely ave.', 'Portland', '12345')
       expect(new_address.city).to eq('Portland')
     end
+
+    it 'will return the zip' do
+      new_address = Address.new('1234 house', 'Lovely ave.', 'Portland', '12345')
+      expect(new_address.zip).to eq('12345')
+    end
   end
 end
