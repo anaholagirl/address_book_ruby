@@ -10,6 +10,9 @@ class Person
     @first_name = first_name
     @last_name = last_name
     @addresses = []
+    @emails = []
+    @phone_numbers = []
+
   end
 
   def first_name
@@ -24,12 +27,28 @@ class Person
     @addresses
   end
 
+  def emails
+    @emails
+  end
+
+  def phone_numbers
+    @phone_numbers
+  end
+
   def save
     @@all_persons << self
   end
 
   def push_address(new_address)
     @addresses << new_address
+  end
+
+  def push_email(email)
+    @emails << email
+  end
+
+  def push_phone(new_phone)
+    @phone_numbers << new_phone
   end
 
 end
