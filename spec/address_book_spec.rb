@@ -2,6 +2,7 @@ require "rspec"
 # require "address_book"
 require "person"
 require "phone"
+require "email"
 
 describe "Person" do
   describe ".initialize" do
@@ -39,7 +40,19 @@ describe "Phone" do
       new_phone = Phone.new('555-555-5555')
       expect(new_phone.phone_number).to eq('555-555-5555')
     end
+  end
+end
 
+describe "Email" do
+  describe ".initialize" do
+    it 'will create an new instance of an email' do
+      new_email = Email.new('person.com')
+      expect(new_email).to be_an_instance_of Email
+    end
 
+    it 'will return the email' do
+      new_email = Email.new('person.com')
+      expect(new_email.email).to eq('person.com')
+    end
   end
 end
