@@ -1,5 +1,11 @@
 class Address
 
+  @@all_addresses = []
+
+  def Address.all
+    @@all_addresses
+  end
+
   def initialize(building, street, city, zip)
     @building = building
     @street = street
@@ -21,6 +27,10 @@ class Address
 
   def zip
     @zip
+  end
+
+  def save
+    @@all_addresses << self
   end
 
 end

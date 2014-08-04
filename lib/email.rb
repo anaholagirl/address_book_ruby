@@ -13,4 +13,7 @@ class Email
     @email
   end
 
+  def save
+    @@all_emails << self
+  end
 end

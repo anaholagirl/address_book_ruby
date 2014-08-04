@@ -9,6 +9,7 @@ class Person
   def initialize(first_name, last_name)
     @first_name = first_name
     @last_name = last_name
+    @addresses = []
   end
 
   def first_name
@@ -19,7 +20,16 @@ class Person
     @last_name
   end
 
+  def addresses
+    @addresses
+  end
+
   def save
     @@all_persons << self
   end
+
+  def push_address(new_address)
+    @addresses << new_address
+  end
+
 end
