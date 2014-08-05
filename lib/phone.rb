@@ -18,4 +18,8 @@ class Phone
     @@all_phones << self
   end
 
+  def update_phone(phone)
+    @phone_number = phone
+  end
+
 end

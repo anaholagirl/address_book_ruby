@@ -33,4 +33,12 @@ class Address
     @@all_addresses << self
   end
 
+  def full_address
+    @building + " " + @street + " " + @city + " " + @zip
+  end
+
+  def remove_address(address)
+    @addresses.delete(address)
+  end
+
 end

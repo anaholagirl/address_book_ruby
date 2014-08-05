@@ -86,23 +86,59 @@ def get_contact_details
       person.phone_numbers.each do |phone|
         puts "3)" + phone.phone_number
       end
-      puts "If you would like to edit any contact details, press 1, 2 or 3"
+      puts "If you would like to update contact details, press 1, 2 or 3"
       puts "Press 'm' to get back to the main menu"
       edit_choice = gets.chomp
       if edit_choice == "m"
         main_menu
       elsif edit_choice == "2"
-        puts "which e-mail would you like to edit"
-        email_old = gets.chomp
-        puts "what would you like to change it to?"
-        email_new = gets.chomp
+        puts "Press 'e' to edit or 'a' to add a new email"
+        email_update  =  gets.chomp
+        if email_update == "e"
+          puts "which e-mail would you like to edit"
+          email_old = gets.chomp
+          puts "what would you like to change it to?"
+          email_new = gets.chomp
 
-        person.emails.each do |email|
-          if email.email == email_old
-            email.update_email(email_new)
+          person.emails.each do |email_from_array|
+            if email_from_array.email == email_old
+              email_from_array.update_email(email_new)
+            end
           end
+        elsif email_update == "a"
+          add_email
         end
-
+      elsif edit_choice == "3"
+        puts "Press 'e' to edit or 'a' to add a new email"
+        phone_update  =  gets.chomp
+        if phone_update == "e"
+          puts "which phone number would you like to edit"
+          phone_old = gets.chomp
+          puts "what would you like to change it to?"
+          phone_new = gets.chomp
+          person.phone_numbers.each do |phone_from_array|
+            if phone_from_array.phone_number == phone_old
+              phone_from_array.update_phone(phone_new)
+            end
+          end
+        elsif phone_update == "a"
+          add_phone
+        end
+      elsif edit_choice == "1"
+        puts "Press 'a' to add a new address or 'd' to delete one."
+        address_update = gets.chomp
+        if address_update == 'a'
+          add_address
+        elsif address_update == 'd'
+          count = 0
+          @current_person.addresses.each do |address_array|
+            puts count.to_s + ") " + address_array.full_address
+            count += 1
+          end
+          puts "Press the number of the address you would like to delete."
+          delete_address = gets.chomp
+          @current_person.addresses.delete_at(delete_address.to_i)
+        end
       end
     end
   end
